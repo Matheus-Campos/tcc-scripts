@@ -17,6 +17,7 @@ class DatabaseWriter:
   
   def close_connection(self):
     self._connection.dispose()
+    self._connection = None
 
   def __enter__(self):
     self.open_connection()

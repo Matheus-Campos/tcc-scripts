@@ -14,8 +14,12 @@ class FileReader:
   def read_files(self):
     data_file = self._get_file_path(self._data_path, lambda f: re.search(self.year, f))
     self.data = pd.read_csv(data_file, sep=';')
+
     info_file = self._get_file_path(self._info_path, self._filter_info_file)
     self.info = pd.read_excel(info_file, 'DICIONÁRIO', header=1)
+
+    self.cities = pd.read_excel(info_file, 'MUNICÍPIOS', header=3)
+    self.cities.dropna(how='all', axis='columns')
 
   def _get_file_path(self, file_path: str, filter_function: Callable):
     files = listdir(file_path)
