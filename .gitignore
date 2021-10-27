@@ -1,3 +1,14 @@
-__pycache__
-data
+# python cache
+__pycache__/
+
+# virtual env
+bin/
+lib/
+include/
+
+# vscode python config
+pyvenv.cfg
+
+# dados do projeto
+data/
 microdados*
